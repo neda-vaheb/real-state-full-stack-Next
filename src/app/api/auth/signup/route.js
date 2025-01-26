@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import connectDB from "@/utils/connectDB";
 import { hashPassword } from "@/utils/auth";
 import User from "@/models/user";
-import next from "next";
 
 export async function POST(req) {
   try {
