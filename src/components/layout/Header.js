@@ -1,8 +1,12 @@
+"use client";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 import { FiLogIn } from "react-icons/fi";
+import { FaUserAlt } from "react-icons/fa";
 
 function Header() {
+  const { data } = useSession();
   return (
     <header className="flex flex-row justify-between item-center text-white bg-purple-500 p-[20px] my-[20px] rounded-xl ">
       <div>
@@ -10,7 +14,7 @@ function Header() {
           <li>
             <Link
               href="/"
-              className="hover:text-purple-300  transition transition-all ease-in-out"
+              className=" text-[20px] hover:text-purple-300  transition transition-all ease-in-out"
             >
               صفحه اصلی
             </Link>
@@ -18,7 +22,7 @@ function Header() {
           <li>
             <Link
               href="/buy-residential"
-              className="hover:text-purple-300   transition transition-all ease-in-out"
+              className="text-[20px] hover:text-purple-300   transition transition-all ease-in-out"
             >
               آگهی ها
             </Link>
@@ -26,14 +30,23 @@ function Header() {
         </ul>
       </div>
       <div>
-        <Link
-          href="/singin"
-          className="flex flex-row items-center gap-[2px] bg-white text-purple-500  py-[3px] px-[7px] rounded-[5px] transition ease-in-out delay-200 hover:bg-purple-500   hover:text-white"
-        >
-          <FiLogIn />
+        {data ? (
+          <Link
+            href="/dashboard"
+            className="flex flex-row items-center gap-[2px] bg-white text-purple-500  py-[3px] px-[7px] rounded-[5px] transition ease-in-out delay-200 hover:bg-purple-500   hover:text-white"
+          >
+            <FaUserAlt />
+          </Link>
+        ) : (
+          <Link
+            href="/signin"
+            className="flex flex-row items-center gap-[2px] bg-white text-purple-500  py-[3px] px-[7px] rounded-[5px] transition ease-in-out delay-200 hover:bg-purple-500   hover:text-white"
+          >
+            <FiLogIn />
 
-          <span className="font-[25px]">ورود</span>
-        </Link>
+            <span className="text-[20px]">ورود</span>
+          </Link>
+        )}
       </div>
     </header>
   );

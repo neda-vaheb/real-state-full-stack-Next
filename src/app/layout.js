@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/layout/Header";
 import Footer from "@/layout/Footer";
 import Layout from "@/layout/Layout";
+import NextAuthProvider from "@/providers/NextAuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +16,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
       <body class="max-w-[1200px] mx-auto px-[10px] overflow-x-hidden font-vazir ">
-        <Layout>{children}</Layout>
+        <NextAuthProvider>
+          <Layout>{children}</Layout>
+        </NextAuthProvider>
       </body>
     </html>
   );
