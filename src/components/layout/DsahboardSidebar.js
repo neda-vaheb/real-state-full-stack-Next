@@ -5,8 +5,8 @@ import LogoutButton from "@/module/LogoutButton";
 
 function DsahboardSidebar({ children, role, email }) {
   return (
-    <div className="flex flex-row  mt-[80px]">
-      <div className="flex flex-col items-center h-fit p-8 rounded-lg shadow-lg shadow-purple-500/30 ml-10 w-56">
+    <div className="flex flex-row justify-between mt-[80px]">
+      <div className="w-[300px] flex flex-col items-center h-fit p-8 rounded-lg shadow-lg shadow-purple-500/30 ml-10 w-56">
         <CgProfile className="text-[3rem] text-primary" />
         {role === "ADMIN" ? "ادمین" : null}
         <p className="text-[1.1rem] text-gray-500 mt-[20px]">{email}</p>
@@ -23,7 +23,7 @@ function DsahboardSidebar({ children, role, email }) {
         {role === "ADMIN" ? <Link href="/admin">در انتظار تایید</Link> : null}
         <LogoutButton />
       </div>
-      <div>{children}</div>
+      <div className="w-full">{children}</div>
     </div>
   );
 }

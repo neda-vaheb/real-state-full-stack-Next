@@ -2,18 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'vazir-light';
-  src: url('../../public/fonts/YekanBakh-Light.woff2') format('woff2');
- 
-}
-@font-face {
-  font-family: 'vazir-bold';
-  src: url('../../public/fonts/YekanBakh-Bold.woff2') format('woff2');
-      
-}
-@font-face {
-  font-family: 'vazir';
-  src: url('../../public/fonts/YekanBakh-Regular.woff2') format('woff2');
-      
+@layer components {
+  .container input , .container textarea{
+    @apply mb-10 w-[300px] border border-dashed border-[#304ffe] text-gray-500 rounded-lg p-2.5 text-base h-10
+  }
+  .container input:focus,
+  .container textarea:focus {
+    @apply border border-solid border-[#304ffe] outline-none;
+  }
 }
