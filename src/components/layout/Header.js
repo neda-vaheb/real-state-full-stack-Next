@@ -8,7 +8,7 @@ import { FaUserAlt } from "react-icons/fa";
 function Header() {
   const { data } = useSession();
   return (
-    <header className="flex flex-row justify-between item-center text-white bg-purple-500 p-[20px] my-[20px] rounded-xl ">
+    <header className="flex flex-row justify-between item-center text-white bg-primary p-[20px] my-[20px] rounded-xl ">
       <div>
         <ul className="flex flex-row gap-[20px]">
           <li>

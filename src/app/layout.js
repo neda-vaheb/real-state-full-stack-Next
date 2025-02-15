@@ -1,11 +1,6 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/layout/Header";
-import Footer from "@/layout/Footer";
 import Layout from "@/layout/Layout";
 import NextAuthProvider from "@/providers/NextAuthProvider";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "املاک",

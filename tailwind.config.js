@@ -22,8 +22,8 @@ module.exports = {
       colors: {
         // تعریف رنگ اصلی (Primary)
         primary: {
-          DEFAULT: "#9061F9", // رنگ پیش‌فرض
-          light: "#CABFFD", // نسخه روشن‌تر
+          DEFAULT: "#9C27B0", // رنگ پیش‌فرض
+          light: "#E1BEE7", // نسخه روشن‌تر
           dark: "#5521B5", // نسخه تیره‌تر
         },
         // تعریف رنگ ثانویه (Secondary)
