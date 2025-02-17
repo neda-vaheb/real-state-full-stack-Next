@@ -13,7 +13,7 @@ function TextInput({
     setProfileData({ ...profileData, [name]: p2e(value) });
   };
   return (
-    <div className="container">
+    <div class="container">
       <p className="text-[1.1rem] mb-[15px]">{title}</p>
       {textarea ? (
         <textarea

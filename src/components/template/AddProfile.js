@@ -1,6 +1,12 @@
 "use client";
+import CustomDatePicker from "@/module/CustomDatePicker";
+import Loader from "@/module/Loader";
+import RadioList from "@/module/RadioList";
 import TextInput from "@/module/TextInput";
-import { useState } from "react";
+import TextList from "@/module/TextList";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 function AddProfile() {
   const [profileData, setProfileData] = useState({
@@ -15,13 +21,34 @@ function AddProfile() {
     rules: [],
     amenities: [],
   });
-  const submitHandler = () => {
-    console.log(profileData);
+  const [loading, setLoading] = useState(false);
+
+  // useEffect(() => {
+  //   if (data) setProfileData(data);
+  // }, []);
+
+  const router = useRouter();
+  const submitHandler = async () => {
+    setLoading(true);
+
+    const res = await fetch("/api/profile", {
+      method: "POST",
+      body: JSON.stringify(profileData),
+      headers: { "Content-Type": "application/json" },
+    });
+    const data = await res.json();
+    setLoading(false);
+    if (data.error) {
+      toast.error(data.error);
+    } else {
+      toast.success(data.message);
+      router.refresh();
+    }
   };
   return (
     <div className="flex flex-col mb-[150px]">
       <h3 className="text-xl font-normal mb-20 w-full bg-[#304ffe18] text-[#304ffe] rounded-lg p-3 px-[15px]">
-        ثبت آگهی
+        {/* {data ? "ویرایش آگهی" : "ثبت آگهی"}{" "} */}
       </h3>
       <TextInput
         title="عنوان آگهی"
@@ -60,12 +87,52 @@ function AddProfile() {
         profileData={profileData}
         setProfileData={setProfileData}
       />
-      <button
-        className="border-none bg-[#304ffe] text-white text-base rounded-[5px] transition-all ease-in duration-100 cursor-pointer p-[10px] hover:scale-105"
-        onClick={submitHandler}
-      >
-        ثبت آگهی
-      </button>
+      <RadioList profileData={profileData} setProfileData={setProfileData} />
+      <TextList
+        title="امکانات رفاهی"
+        profileData={profileData}
+        setProfileData={setProfileData}
+        type="amenities"
+      />
+      <TextList
+        title="قوانین"
+        profileData={profileData}
+        setProfileData={setProfileData}
+        type="rules"
+      />
+      <CustomDatePicker
+        profileData={profileData}
+        setProfileData={setProfileData}
+      />
+      <Toaster />
+      {
+        loading ? (
+          <Loader />
+        ) : (
+          <button
+            className="border-none bg-primary text-white text-base rounded-[5px] transition-all ease-in duration-100 cursor-pointer p-[10px] hover:scale-105"
+            onClick={submitHandler}
+          >
+            ثبت آگهی
+          </button>
+        )
+
+        // ) : data ? (
+        //   <button
+        //     className="border-none bg-primary text-white text-base rounded-[5px] transition-all ease-in duration-100 cursor-pointer p-[10px] hover:scale-105"
+        //     onClick={submitHandler}
+        //   >
+        //     ویرایش آگهی
+        //   </button>
+        // ) : (
+        //   <button
+        //     className="border-none bg-primary text-white text-base rounded-[5px] transition-all ease-in duration-100 cursor-pointer p-[10px] hover:scale-105"
+        //     onClick={submitHandler}
+        //   >
+        //     ثبت آگهی
+        //   </button>
+        // )
+      }
     </div>
   );
 }

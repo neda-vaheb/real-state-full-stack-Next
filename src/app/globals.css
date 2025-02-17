@@ -4,10 +4,16 @@
 
 @layer components {
   .container input , .container textarea{
-    @apply mb-10 w-[300px] border border-dashed border-[#304ffe] text-gray-500 rounded-lg p-2.5 text-base h-10
+    @apply mb-10 w-[300px] border border-dashed border-purple-500  text-gray-500 rounded-lg p-2.5 text-base h-10
   }
   .container input:focus,
   .container textarea:focus {
     @apply border border-solid border-[#304ffe] outline-none;
   }
+  .categoryMain {
+  @apply flex flex-row;
+  }
+.categoryMain div{
+  @apply flex items-center justify-evenly bg-purple-200 text-purple-500  ml-[30px] w-[70px] px-[5px] py-[3px] rounded-[5px] cursor-pointer;
+}
 }
