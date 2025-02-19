@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
-function AddProfile() {
+function AddProfile({ data }) {
   const [profileData, setProfileData] = useState({
     title: "",
     description: "",
@@ -23,9 +23,9 @@ function AddProfile() {
   });
   const [loading, setLoading] = useState(false);
 
-  // useEffect(() => {
-  //   if (data) setProfileData(data);
-  // }, []);
+  useEffect(() => {
+    if (data) setProfileData(data);
+  }, []);
 
   const router = useRouter();
   const submitHandler = async () => {
@@ -45,10 +45,26 @@ function AddProfile() {
       router.refresh();
     }
   };
+  const editHandler = async () => {
+    setLoading(true);
+    const res = await fetch("/api/profile", {
+      method: "PATCH",
+      body: JSON.stringify(profileData),
+      headers: { "Content-Type": "application/json" },
+    });
+    const data = await res.json();
+    setLoading(false);
+    if (data.error) {
+      toast.error(data.error);
+    } else {
+      toast.success(data.message);
+      router.refresh();
+    }
+  };
   return (
     <div className="flex flex-col mb-[150px]">
       <h3 className="text-xl font-normal mb-20 w-full bg-[#304ffe18] text-[#304ffe] rounded-lg p-3 px-[15px]">
-        {/* {data ? "ویرایش آگهی" : "ثبت آگهی"}{" "} */}
+        {data ? "ویرایش آگهی" : "ثبت آگهی"}{" "}
       </h3>
       <TextInput
         title="عنوان آگهی"
@@ -105,34 +121,23 @@ function AddProfile() {
         setProfileData={setProfileData}
       />
       <Toaster />
-      {
-        loading ? (
-          <Loader />
-        ) : (
-          <button
-            className="border-none bg-primary text-white text-base rounded-[5px] transition-all ease-in duration-100 cursor-pointer p-[10px] hover:scale-105"
-            onClick={submitHandler}
-          >
-            ثبت آگهی
-          </button>
-        )
-
-        // ) : data ? (
-        //   <button
-        //     className="border-none bg-primary text-white text-base rounded-[5px] transition-all ease-in duration-100 cursor-pointer p-[10px] hover:scale-105"
-        //     onClick={submitHandler}
-        //   >
-        //     ویرایش آگهی
-        //   </button>
-        // ) : (
-        //   <button
-        //     className="border-none bg-primary text-white text-base rounded-[5px] transition-all ease-in duration-100 cursor-pointer p-[10px] hover:scale-105"
-        //     onClick={submitHandler}
-        //   >
-        //     ثبت آگهی
-        //   </button>
-        // )
-      }
+      {loading ? (
+        <Loader />
+      ) : data ? (
+        <button
+          className="border-none bg-primary text-white text-base rounded-[5px] transition-all ease-in duration-100 cursor-pointer p-[10px] hover:scale-105"
+          onClick={editHandler}
+        >
+          ویرایش آگهی
+        </button>
+      ) : (
+        <button
+          className="border-none bg-primary text-white text-base rounded-[5px] transition-all ease-in duration-100 cursor-pointer p-[10px] hover:scale-105"
+          onClick={submitHandler}
+        >
+          ثبت آگهی
+        </button>
+      )}
     </div>
   );
 }
