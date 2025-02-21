@@ -8,7 +8,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
   try {
     await connectDB();
-    const profile = await Profile.find().select("-userId");
+    const profile = await Profile.find({ published: true }).select("-userId");
     return NextResponse.json(
       {
         data: profile,
