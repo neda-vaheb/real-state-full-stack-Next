@@ -1,4 +1,5 @@
 import { model, models, Schema } from "mongoose";
+import { categories } from "src/constants/string";
 
 const profileSchema = Schema(
   {
@@ -30,7 +31,7 @@ const profileSchema = Schema(
       type: Date,
       required: true,
     },
-    category: {
+    categories: {
       type: String,
       enum: ["villa", "apartment", "store", "office"],
       required: true,

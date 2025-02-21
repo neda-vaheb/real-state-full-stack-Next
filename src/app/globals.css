@@ -16,4 +16,7 @@
 .categoryMain div{
   @apply flex items-center justify-evenly bg-purple-200 text-purple-500  ml-[30px] w-[70px] px-[5px] py-[3px] rounded-[5px] cursor-pointer;
 }
+.marker-custom::marker{
+  @apply text-primary;
+}
 }

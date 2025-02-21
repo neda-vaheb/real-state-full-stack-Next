@@ -6,7 +6,7 @@ function CategoryCard({ name, title }) {
   return (
     <div>
       <div className="shadow-[#304ffe4a_0px_4px_15px] rounded-[15px] overflow-hidden p-[10px] transition-all ease-in duration-100 m-[10px_0] hover:rotate-[-5deg]">
-        <Link href={`/buy-residential?category=${name}`}>
+        <Link href={`/buy-residential?categories=${name}`}>
           <Image
             className="rounded-[10px]"
             src={`/images/${name}.png`}

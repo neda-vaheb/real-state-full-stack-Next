@@ -36,7 +36,7 @@ export async function POST(req) {
       realState,
       price,
       constructionDate,
-      category,
+      categories,
       amenities,
       rules,
     } = await req.json();
@@ -67,7 +67,7 @@ export async function POST(req) {
       !realState ||
       !price ||
       !constructionDate ||
-      !category
+      !categories
     ) {
       return NextResponse.json(
         { error: "لطفا اطلاعات معتبر وارد کنید" },
@@ -83,7 +83,7 @@ export async function POST(req) {
       constructionDate,
       amenities,
       rules,
-      category,
+      categories,
       price: +price,
       userId: new Types.ObjectId(user._id),
     });
@@ -113,7 +113,7 @@ export async function PATCH(req) {
       realState,
       price,
       constructionDate,
-      category,
+      categories,
       amenities,
       rules,
     } = await req.json();
@@ -145,7 +145,7 @@ export async function PATCH(req) {
       !realState ||
       !price ||
       !constructionDate ||
-      !category
+      !categories
     ) {
       return NextResponse.json(
         { error: "لطفا اطلاعات معتبر وارد کنید" },
@@ -172,7 +172,7 @@ export async function PATCH(req) {
     profile.constructionDate = constructionDate;
     profile.amenities = amenities;
     profile.rules = rules;
-    profile.category = category;
+    profile.categories = categories;
     profile.save();
 
     return NextResponse.json(

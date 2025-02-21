@@ -17,7 +17,7 @@ function AddProfile({ data }) {
     price: "",
     realState: "",
     constructionDate: new Date(),
-    category: "",
+    categories: "",
     rules: [],
     amenities: [],
   });

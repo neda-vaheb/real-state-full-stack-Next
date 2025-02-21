@@ -1,12 +1,21 @@
 import BuyResidentialPage from "@/template/BuyResidentialPage";
 
-async function BuyResidential() {
-  const res = await fetch("http://localhost:3000/api/profile", {
+async function BuyResidential({ searchParams }) {
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/profile`, {
     cache: "no-store",
   });
   const data = await res.json();
-  console.log(data);
-  return <BuyResidentialPage />;
+
+  if (data.error) return <h3>مشکلی پیش آمده است</h3>;
+
+  let finalData = data.data;
+  if (searchParams.categories) {
+    finalData = finalData.filter(
+      (i) => i.categories === searchParams.categories
+    );
+  }
+
+  return <BuyResidentialPage data={finalData} />;
 }
 
 export default BuyResidential;

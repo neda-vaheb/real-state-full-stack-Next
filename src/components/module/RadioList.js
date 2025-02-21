@@ -1,7 +1,7 @@
 import React from "react";
 
 function RadioList({ profileData, setProfileData }) {
-  const { category } = profileData;
+  const { categories } = profileData;
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setProfileData({ ...profileData, [name]: value });
@@ -14,10 +14,10 @@ function RadioList({ profileData, setProfileData }) {
           <label htmlFor="villa">ویلا</label>
           <input
             type="radio"
-            name="category"
+            name="categories"
             value="villa"
             id="villa"
-            checked={category === "villa"}
+            checked={categories === "villa"}
             onChange={changeHandler}
           />
         </div>
@@ -25,10 +25,10 @@ function RadioList({ profileData, setProfileData }) {
           <label htmlFor="apartment">آپارتمان</label>
           <input
             type="radio"
-            name="category"
+            name="categories"
             value="apartment"
             id="apartment"
-            checked={category === "apartment"}
+            checked={categories === "apartment"}
             onChange={changeHandler}
           />
         </div>
@@ -36,10 +36,10 @@ function RadioList({ profileData, setProfileData }) {
           <label htmlFor="store">مغازه</label>
           <input
             type="radio"
-            name="category"
+            name="categories"
             value="store"
             id="store"
-            checked={category === "store"}
+            checked={categories === "store"}
             onChange={changeHandler}
           />
         </div>
@@ -47,10 +47,10 @@ function RadioList({ profileData, setProfileData }) {
           <label htmlFor="office">دفتر</label>
           <input
             type="radio"
-            name="category"
+            name="categories"
             value="office"
             id="office"
-            checked={category === "office"}
+            checked={categories === "office"}
             onChange={changeHandler}
           />
         </div>
