@@ -90,7 +90,7 @@ export async function POST(req) {
     console.log(newProfile);
 
     return NextResponse.json(
-      { message: "آگهی جدید اضافه شد" },
+      { message: "آگهی در انتظار تایید ادمین سایت قرار گرفت " },
       { status: 201 }
     );
   } catch (error) {
