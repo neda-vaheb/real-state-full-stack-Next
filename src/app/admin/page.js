@@ -1,24 +1,30 @@
-import connectDB from "@/utils/connectDB";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
-import User from "@/models/user";
 import { redirect } from "next/navigation";
-import Profile from "@/models/profile";
-import DsahboardSidebar from "@/layout/DsahboardSidebar";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/api/auth/[...nextauth]/route";
 import AdminPage from "@/template/AdminPage";
+import connectDB from "@/utils/connectDB";
+import User from "@/models/user";
+import Profile from "@/models/profile";
+import DashboardSidebar from "@/layout/DashboardSidebar";
 
-async function admin() {
+export const metadata = {
+  title: "پنل ادمین املاک ",
+};
+async function Admin() {
   await connectDB();
   const session = await getServerSession(authOptions);
   if (!session) redirect("/signin");
-  const user = await User.findeOne({ email: session.user.email });
+
+  const user = await User.findOne({ email: session.user.email });
   if (user.role !== "ADMIN") redirect("/dashboard");
+
   const profiles = await Profile.find({ published: false });
+
   return (
-    <DsahboardSidebar role={user.role} email={user.email}>
-      <AdminPage data={profiles} />
-    </DsahboardSidebar>
+    <DashboardSidebar role={user.role} email={user.email}>
+      <AdminPage profiles={profiles} />
+    </DashboardSidebar>
   );
 }
 
-export default admin;
+export default Admin;

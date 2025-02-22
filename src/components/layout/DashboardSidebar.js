@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CgProfile } from "react-icons/cg";
 import LogoutButton from "@/module/LogoutButton";
 
-function DsahboardSidebar({ children, role, email }) {
+function DashboardSidebar({ children, role, email }) {
   return (
     <div className="flex flex-row justify-between mt-[80px]">
       <div className="w-[300px] flex flex-col items-center h-fit p-8 rounded-lg shadow-lg shadow-purple-500/30 ml-10 w-56">
@@ -28,4 +28,4 @@ function DsahboardSidebar({ children, role, email }) {
   );
 }
 
-export default DsahboardSidebar;
+export default DashboardSidebar;

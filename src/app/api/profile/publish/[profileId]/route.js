@@ -4,7 +4,7 @@ const { default: connectDB } = require("@/utils/connectDB");
 const { getServerSession } = require("next-auth");
 const { NextResponse } = require("next/server");
 
-async function PATCH(req, context) {
+export async function PATCH(req, context) {
   try {
     await connectDB();
     const id = context.params.profileId;

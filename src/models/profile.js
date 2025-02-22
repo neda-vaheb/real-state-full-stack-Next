@@ -1,5 +1,4 @@
 import { model, models, Schema } from "mongoose";
-import { categories } from "src/constants/string";
 
 const profileSchema = Schema(
   {
