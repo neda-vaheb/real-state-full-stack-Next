@@ -1,9 +1,9 @@
-import DsahboardSidebar from "@/layout/DsahboardSidebar";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 import connectDB from "@/utils/connectDB";
 import User from "@/models/user";
+import DashboardSidebar from "@/layout/DashboardSidebar";
 
 export const metadata = {
   title: "پنل کاربری پروژه املاک",
@@ -18,8 +18,8 @@ export default async function DashboardLayout({ children }) {
   const user = await User.findOne({ email: session.user.email });
   if (!user) return <h3>مشکلی پیش آمده</h3>;
   return (
-    <DsahboardSidebar email={user.email} role={user.role}>
+    <DashboardSidebar email={user.email} role={user.role}>
       {children}
-    </DsahboardSidebar>
+    </DashboardSidebar>
   );
 }
