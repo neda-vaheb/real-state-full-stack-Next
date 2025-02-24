@@ -1,0 +1,8 @@
+{
+    "app":"real-state-nextjs",
+    "port":3000,
+    "build":{
+    "location":"iran"
+    },
+    "disks":[]
+    }
