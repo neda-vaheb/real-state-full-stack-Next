@@ -5,7 +5,6 @@ import { BiCalendarCheck } from "react-icons/bi";
 import { e2p, sp } from "@/utils/replaceNumber";
 import ItemList from "@/module/ItemList";
 import Title from "@/module/Title";
-import ShareButton from "@/module/ShareButton";
 import { categories as category } from "@/constants/string";
 import { icons } from "@/constants/icons";
 
@@ -47,7 +46,7 @@ function DetailsPage({
             {e2p(phone)}
           </span>
         </div>
-        <ShareButton />
+      
         <div className="shadow-[#304ffe4a_0px_4px_15px] py-[20px] rounded-lg mb-5 flex flex-col items-center justify-center">
           <p className="flex items-center text-gray-500 mb-[20px] h-[20px]">
             {icons[categories]}
