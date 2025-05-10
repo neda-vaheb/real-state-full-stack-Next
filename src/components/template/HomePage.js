@@ -26,7 +26,7 @@ function HomePage() {
       </div>
       <div className="flex justify-between flex-wrap my-[50px]">
         {Object.keys(categories).map((i) => (
-          <CategoryCard title={categories[i]} name={i} />
+          <CategoryCard key={i} title={categories[i]} name={i} />
         ))}
       </div>
       <div className="my-[100px]">

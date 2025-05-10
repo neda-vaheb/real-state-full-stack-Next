@@ -14,7 +14,7 @@ function Header() {
           <li>
             <Link
               href="/"
-              className=" text-[20px] hover:text-purple-300  transition transition-all ease-in-out"
+              className=" text-[20px] hover:text-purple-300  transition  ease-in-out"
             >
               صفحه اصلی
             </Link>
@@ -22,7 +22,7 @@ function Header() {
           <li>
             <Link
               href="/buy-residential"
-              className="text-[20px] hover:text-purple-300   transition transition-all ease-in-out"
+              className="text-[20px] hover:text-purple-300   transition  ease-in-out"
             >
               آگهی ها
             </Link>
