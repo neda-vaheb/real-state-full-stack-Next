@@ -20,17 +20,14 @@ module.exports = {
         custom: "0px 4px 15px rgba(48, 79, 254, 0.29)",
       },
       colors: {
-        // تعریف رنگ اصلی (Primary)
+   
         primary: {
-          DEFAULT: "#9C27B0", // رنگ پیش‌فرض
-          light: "#E1BEE7", // نسخه روشن‌تر
-          dark: "#5521B5", // نسخه تیره‌تر
+          DEFAULT: "#072135", 
         },
-        // تعریف رنگ ثانویه (Secondary)
+  
         secondary: {
-          DEFAULT: "#FF6D00", // رنگ پیش‌فرض
-          light: "#FF9E40", // نسخه روشن‌تر
-          dark: "#C43C00", // نسخه تیره‌تر
+          DEFAULT: "#38A9FF",
+       
         },
       },
     },
