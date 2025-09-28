@@ -30,7 +30,7 @@ function SigninPage() {
   return (
     <div className="flex flex-col juctify-center items-center h-[700px] mt-[100px] m-auto">
       <h4 className="text-primary text-xl mb-[20px]">فرم ورود</h4>
-      <form className="flex flex-col items-start min-h-[500px] m-w-[600px] p-[40px] pt-[60px] mb-[30px] rounded-xl border-[2px] border-primary shadow-custom">
+      <form className="flex flex-col items-start min-h-[500px] m-w-[600px] p-[40px] pt-[60px] mb-[30px] rounded-xl border-[2px] border-primary ">
         <label className="font-normal mb-[10px] text-primary">ایمیل:</label>
         <input
           className="w-[250px] h-[40px] font-[1rem] dir-ltr outline-solid outline-primary mb-[40px] border-dashed border-primary border rounder-[5px] text-gray-500 p-[10px] "
@@ -50,7 +50,7 @@ function SigninPage() {
           <Loader />
         ) : (
           <button
-            className="bg-primary text-white w-full py-2 rounded-[5px] cursor-pointer hover:scale-[1.05] transition transition-all"
+            className="bg-primary text-white w-full py-2 rounded-[5px] cursor-pointer hover:scale-[1.05]  transition-all"
             type="submit"
             onClick={singinHandler}
           >

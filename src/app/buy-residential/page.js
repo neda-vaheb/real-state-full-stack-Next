@@ -1,7 +1,11 @@
 import BuyResidentialPage from "@/template/BuyResidentialPage";
 
 async function BuyResidential({ searchParams }) {
-  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/profile`, {
+
+  const baseUrl = process.env.NODE_ENV === 'production' 
+  ? 'https://your-production-api.com'
+  : 'http://localhost:3000';
+  const res = await fetch(`${baseUrl}/api/profile`, {
     cache: "no-store",
   });
   const data = await res.json();

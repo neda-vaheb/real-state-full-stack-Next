@@ -9,15 +9,15 @@ import Image from "next/image";
 function Header() {
   const { data } = useSession();
   return (
-    <header className=" container flex flex-row justify-between !align-middle !item-center text-black p-[20px] my-[20px] rounded-xl ">
+    <header className=" container px-7 flex flex-row justify-between !align-middle !item-center text-black p-[20px] my-[20px] rounded-xl ">
       <div>
         <ul className="flex flex-row items-center justify-start align-middle gap-[20px]">
         <li>
             <Image
           src="/logo.svg"
 alt="logo"
-width={70}
-height={70}
+width={100}
+height={100}
              
             />
                
@@ -56,11 +56,11 @@ height={70}
             >
             
 
-            <span className="text-[20px] flex flex-row items-end justify-center text-primary hover:text-secondary gap-3 align-middle">
+            <button className="text-[20px] flex flex-row items-end justify-center bg-gray-200 px-4 py-2 rounded-full text-primary hover:opacity-50 gap-3 align-middle">
             <FiLogIn />
               ورود 
               
-              </span>
+              </button>
           </Link>
         )}
     </header>

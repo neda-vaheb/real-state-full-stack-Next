@@ -10,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className="max-w-[1200px] mx-auto px-[10px] overflow-x-hidden font-vazir ">
+      <body className=" mx-auto  overflow-x-hidden font-vazir ">
         <NextAuthProvider>
           <Layout>{children}</Layout>
         </NextAuthProvider>
