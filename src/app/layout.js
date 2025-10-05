@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="fa" dir="rtl">
       <body className=" mx-auto  overflow-x-hidden font-vazir ">
         <NextAuthProvider>
-          <Layout>{children}</Layout>
+        {children}
         </NextAuthProvider>
       </body>
     </html>
