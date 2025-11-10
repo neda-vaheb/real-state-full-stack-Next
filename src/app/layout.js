@@ -1,6 +1,8 @@
+import Footer from "@/layout/Footer";
 import "./globals.css";
 import Layout from "@/layout/Layout";
 import NextAuthProvider from "@/providers/NextAuthProvider";
+import Header from "@/layout/Header";
 
 export const metadata = {
   title: "املاک",
@@ -12,7 +14,9 @@ export default function RootLayout({ children }) {
     <html lang="fa" dir="rtl">
       <body className=" mx-auto  overflow-x-hidden font-vazir ">
         <NextAuthProvider>
+          <Header/>
         {children}
+        <Footer/>
         </NextAuthProvider>
       </body>
     </html>

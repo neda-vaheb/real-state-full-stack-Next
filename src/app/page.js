@@ -8,7 +8,7 @@ export default function Home() {
 
 <>
 <NextAuthProvider>
-<Header/> <HomePage /><Footer/>
+<Header/> <HomePage />
 </NextAuthProvider>
 
 
