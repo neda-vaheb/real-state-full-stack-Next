@@ -25,7 +25,7 @@ function AddProfile({ data }) {
 
   useEffect(() => {
     if (data) setProfileData(data);
-  }, []);
+  }, [data]);
 
   const router = useRouter();
   const submitHandler = async () => {
