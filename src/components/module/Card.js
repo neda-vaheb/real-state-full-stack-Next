@@ -6,7 +6,7 @@ import { icons } from "src/constants/icons";
 
 function Card({ data: { _id, categories, title, location, price } }) {
   return (
-    <div className="w-[250px] border-2 border-primary rounded-lg p-2.5 m-2.5">
+    <div className="w-[250px] border  border-gray-100 shadow-md rounded-lg p-2.5 m-2.5">
       <div>{icons[categories]}</div>
       <p className="my-[10px]">{title}</p>
       <p className=" flex flex-row text-gray-500 text-[0.9rem]">

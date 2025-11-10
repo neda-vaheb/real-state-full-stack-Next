@@ -4,8 +4,9 @@ import CategoryCard from "@/module/CategoryCard";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+const words = ["خانه", "آپارتمان", "ویلا"];
+
 function HeroSection() {
-  const words = ["خانه", "آپارتمان", "ویلا"]; 
   const [text, setText] = useState("");
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -32,7 +33,7 @@ function HeroSection() {
 
     const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
-  }, [text, isDeleting, wordIndex, words]);
+  }, [text, isDeleting, wordIndex]);
   return (
     <div className=" container flex flex-col gap-10">
       <div className="relative">
