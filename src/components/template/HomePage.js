@@ -1,7 +1,6 @@
 
 import { categories  } from "src/constants/string";
 import CategoryCard from "@/module/CategoryCard";
-import Image from "next/image";
 import HeroSection from "../features/HeroSection";
 import AboutUsLanding from "../features/AboutUsLanding";
 import WhyUs from "../features/WhyUs";

@@ -16,7 +16,7 @@ export default function AboutUsLanding() {
             <li>مشارکت در پروژه های بزرگ</li>
           </ul>
         </div>
-        <Image src="/image.png" width={450} height={300} alt="aboutus" />
+        <Image src="./images/about.png" width={450} height={300} alt="aboutus" />
       </div>
   )
 }
