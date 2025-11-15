@@ -3,7 +3,7 @@ import BuyResidentialPage from "@/template/BuyResidentialPage";
 async function BuyResidential({ searchParams }) {
 
   const baseUrl = process.env.NODE_ENV === 'production' 
-  ? 'https://your-production-api.com'
+  ? 'https://real-state-full-stack-next-vq5t.vercel.app'
   : 'http://localhost:3000';
   const res = await fetch(`${baseUrl}/api/profile`, {
     cache: "no-store",
